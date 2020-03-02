@@ -1,0 +1,14 @@
+<view class="main-bottom-bar cu-bar tabbar bg-white shadow foot">
+  <view
+    class="action"
+    wx:for="{{menus}}"
+    wx:key="id"
+    bindtap="NavChange"
+    data-cur="{{item.id}}"
+  >
+    <i
+      style="font-size: 32rpx;"
+      class="iconfont icon-{{item.icon}} {{PageCur==item.key?'text-blue':'text-gray'}}"></i>
+    <view class="{{PageCur==item.key?'text-blue':'text-gray'}}">{{item.name}}</view>
+  </view> 
+</view>

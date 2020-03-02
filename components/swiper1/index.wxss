@@ -1,0 +1,28 @@
+.container {
+  width: 640rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 36rpx;
+  padding-bottom: 36rpx;
+}
+
+.course {
+  width: 640rpx;
+  height: 360rpx;
+}
+
+.course.swiper {
+  
+}
+
+.course.image {
+
+}
+
+.progress {
+  width: 200rpx;
+  height: 5rpx;
+  border-radius: 5rpx;
+  margin-top: 36rpx;
+}

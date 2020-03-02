@@ -1,0 +1,11 @@
+{
+  "disableScroll": false,
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "card": "../../components/card",
+    "swiper1": "../../components/swiper1",
+    "bottomNav": "../../components/bottomNav"
+  },
+  "backgroundColor": "#000000",
+  "navigationBarTitleText": "Test"
+}

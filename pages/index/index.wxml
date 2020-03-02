@@ -1,0 +1,16 @@
+<view class='container'>
+  <card title='Card'>
+    <swiper1 />
+  </card>
+  <card title='WeUI'>
+    <button bindtap='jump'>跳转</button>
+  </card>
+  <button class="cu-btn round sm">小尺寸</button>
+  <button class="cu-btn round">默认</button>
+  <button class="cu-btn round lg">大尺寸</button>
+  <card title='Card'>
+    <swiper1 />
+  </card>
+</view>
+
+<bottomNav />

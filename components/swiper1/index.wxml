@@ -1,0 +1,11 @@
+<view class='container'>
+  <swiper class='course.swiper' next-margin='-20rpx' bindchange='itemchange'>
+    <block wx:for="{{images}}" wx:key="index">
+      <swiper-item>
+        <image class='course.image' src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <progress class='progress' activeColor='#000000' backgroundColor='#EBEBEB' border-radius='5' percent="{{progress}}">
+  </progress>
+</view>

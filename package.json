@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "``` public-cli new github",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "beth <522718277@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "weui-miniprogram": "^0.2.1"
+  }
+}
