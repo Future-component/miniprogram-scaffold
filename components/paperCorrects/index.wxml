@@ -1,0 +1,6 @@
+<canvas
+  id='{{id}}'
+  class='{{id}}'
+  style='{{"width:"+width+"px;height:"+height+"px;"}}'
+  canvas-id='{{id}}'
+></canvas>

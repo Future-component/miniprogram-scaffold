@@ -3,7 +3,7 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "card": "../../components/card",
-    "swiper1": "../../components/swiper1",
+    "swiper": "../../components/swiper",
     "bottomNav": "../../components/bottomNav"
   },
   "backgroundColor": "#000000",
