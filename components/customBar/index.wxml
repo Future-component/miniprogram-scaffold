@@ -14,3 +14,4 @@
     <slot name="right"></slot>
   </view>
 </view>
+<view style="display: block;">{{CustomBar}}</view>
