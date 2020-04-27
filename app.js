@@ -105,7 +105,7 @@ App({
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
         this.globalData.container = {
           width: e.windowWidth,
-          height: e.windowHeight - this.globalData.CustomBar
+          height: e.platform === 'android' ? e.windowHeight : e.windowHeight - this.globalData.CustomBar
         }
       }
     })
