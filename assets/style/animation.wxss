@@ -1,60 +1,94 @@
-/* 
-  Animation 微动画  
-  基于ColorUI组建库的动画模块 by Beth 2019年3月26日19:52:28
- */
+.pulse {
+  font-size: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  color: rgba(95,139,250,1);
+  background: rgba(255,255,255,1);
+  box-shadow: 0 0 0 rgba(255,255,255,1);
+  animation: pulse-animation 2s infinite;
+}
+
+.loading {
+  display: inline-block;
+  animation: load-progress-spinner 2s infinite linear;
+}
+
+@keyframes pulse-animation {
+  0%{box-shadow:0 0 0 0 rgba(255,255,255,.75)}
+  40%{box-shadow:0 0 0 1em rgba(255,255,255,.45)}
+  70%{box-shadow:0 0 0 2em rgba(255,255,255,.25)}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0.1)}
+}
+
+.skeleton-loading {
+  /* background: -webkit-gradient(linear, left top, right top, color-stop(25%, #f2f2f2), color-stop(37%, #e6e6e6), color-stop(63%, #f2f2f2)); */
+  background: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
 
 /* css 滤镜 控制黑白底色gif的 */
-.gif-black{  
+.gif-black {  
   mix-blend-mode: screen;  
 }
-.gif-white{  
+.gif-white {  
   mix-blend-mode: multiply; 
 }
 
-
 /* Animation css */
 [class*=animation-] {
-    animation-duration: .5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: both
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  /* none | forwards | backwards | both */
 }
 
 .animation-fade {
-    animation-name: fade;
-    animation-duration: .8s;
-    animation-timing-function: linear
+  animation-name: fade;
+  animation-duration: .4s;
+  animation-timing-function: linear
 }
 
 .animation-scale-up {
-    animation-name: scale-up
+  animation-name: scale-up
 }
 
 .animation-scale-down {
-    animation-name: scale-down
+  animation-name: scale-down
 }
 
 .animation-slide-top {
-    animation-name: slide-top
+  animation-name: slide-top
 }
 
 .animation-slide-bottom {
-    animation-name: slide-bottom
+  animation-name: slide-bottom
 }
 
 .animation-slide-left {
-    animation-name: slide-left
+  animation-name: slide-left
 }
 
 .animation-slide-right {
-    animation-name: slide-right
+  animation-name: slide-right
 }
 
 .animation-shake {
-    animation-name: shake
+  animation-name: shake
 }
 
 .animation-reverse {
-    animation-direction: reverse
+  animation-direction: reverse
 }
 
 @keyframes fade {

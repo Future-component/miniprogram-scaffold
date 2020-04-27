@@ -2,8 +2,6 @@
   ColorUi for MP-weixin  v2.1.4 | by 文晓港 2019年4月25日19:15:42
   仅供学习交流，如作它用所承受的法律责任一概与作者无关
   使用ColorUi开发扩展与插件时，请注明基于ColorUi开发
-  
-  （QQ交流群：240787041）
 */
 
 /* ==================
@@ -14,20 +12,23 @@ page {
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
 	--red: #e54d42;
-	--orange: #f37b1d;
+	/* --orange: #f37b1d; */
+	--orange: #ffa400;
 	--yellow: #fbbd08;
 	--olive: #8dc63f;
 	--green: #39b54a;
 	--cyan: #1cbbb4;
 	/* --blue: #0081ff; */
 	/* --blue: #4e7dc2; */
-	--blue: #0081ff;
-	--purple: #6739b6;
+	/* --blue: #0081ff; */
+	--blue: rgba(95,139,250,1);
+	--purple: #4e40dd;
 	--mauve: #9c26b0;
 	--pink: #e03997;
 	--brown: #a5673f;
-	--grey: #8799a3;
-	--black: #333333;
+	/* --grey: #8799a3; */
+	--grey: #f8f8ff;
+	--black: #000000;
 	--darkGray: #666666;
 	--gray: #aaaaaa;
 	--ghostWhite: #f1f1f1;
@@ -50,8 +51,9 @@ page {
 	--gradualOrange: linear-gradient(45deg, #ff9700, #ed1c24);
 	--gradualGreen: linear-gradient(45deg, #39b54a, #8dc63f);
 	--gradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
-	--gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
+	--gradualPink: linear-gradient(45deg, #ec008c, #4e40dd);
 	--gradualBlue: linear-gradient(45deg, #ec7530, #2196F3);
+	--gradualLightBlue: linear-gradient(45deg, rgba(95,139,250,1), #2196F3);
 	/* 阴影透明色 */
 	--ShadowSize: 6rpx 6rpx 8rpx;
 	--redShadow: rgba(204, 69, 59, 0.2);
@@ -131,8 +133,8 @@ image.loading::after {
 	font-size: 32rpx;
 	margin: auto;
 	color: #ccc;
-	-webkit-animation: cuIcon-spin 2s infinite linear;
-	animation: cuIcon-spin 2s infinite linear;
+	-webkit-animation: load-progress-spinner 2s infinite linear;
+	animation: load-progress-spinner 2s infinite linear;
 	display: block;
 }
 
@@ -747,9 +749,9 @@ radio.white[checked] .wx-radio-input {
 }
 
 .cu-btn.lg {
-	padding: 0 40rpx;
-	font-size: 32rpx;
-	height: 80rpx;
+	padding: 0 60rpx;
+	font-size: 34rpx;
+	height: 100rpx;
 }
 
 .cu-btn.icon.sm {
@@ -1079,7 +1081,7 @@ button.icon.lg {
 
 .cu-load.loading::before {
 	content: "\e67a";
-	animation: cuIcon-spin 2s infinite linear;
+	animation: load-progress-spinner 2s infinite linear;
 }
 
 .cu-load.loading::after {
@@ -1135,6 +1137,16 @@ button.icon.lg {
 	line-height: 2.4em;
 }
 
+.cu-load.load-modal-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9998;
+	width: 100%;
+	height: 100vh;
+	/* background-color: rgba(0, 0, 0, 0.5); */
+}
+
 .cu-load.load-modal [class*="cuIcon-"] {
 	font-size: 60rpx;
 }
@@ -1155,8 +1167,8 @@ button.icon.lg {
 	border-top: 6rpx solid rgba(0, 0, 0, 0.05);
 	border-right: 6rpx solid rgba(0, 0, 0, 0.05);
 	border-bottom: 6rpx solid rgba(0, 0, 0, 0.05);
-	border-left: 6rpx solid var(--orange);
-	animation: cuIcon-spin 1s infinite linear;
+	border-left: 6rpx solid var(--blue);
+	animation: load-progress-spinner 1s infinite linear;
 	z-index: -1;
 }
 
@@ -1291,7 +1303,7 @@ button.icon.lg {
 	position: absolute;
 	left: 146rpx;
 	width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
-	line-height: 1.6em;
+	line-height: 1.7em;
 }
 
 .cu-list.menu-avatar>.cu-item .content.flex-sub {
@@ -1417,7 +1429,7 @@ button.icon.lg {
 .cu-list.menu>.cu-item .content>text[class*=cuIcon] {
 	display: inline-block;
 	margin-right: 10rpx;
-	width: 1.6em;
+	width: 1.7em;
 	text-align: center
 }
 
@@ -1432,7 +1444,7 @@ button.icon.lg {
 
 .cu-list.menu>.cu-item .content {
 	font-size: 30rpx;
-	line-height: 1.6em;
+	line-height: 1.7em;
 	flex: 1
 }
 
@@ -1544,6 +1556,7 @@ button.icon.lg {
 	display: flex;
 	position: relative;
 	align-items: center;
+	width: 100%;
 	min-height: 100rpx;
 	justify-content: space-between;
 }
@@ -1554,6 +1567,25 @@ button.icon.lg {
 	height: 100%;
 	justify-content: center;
 	max-width: 100%;
+}
+
+.cu-bar .action.action-btn {
+	display: inline-block;
+	width: 300rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	background: #fff;
+	border-radius: 80rpx;
+	margin: 0 auto;
+	margin-top: 50rpx;
+}
+
+.cu-bar .action .cuIcon-title {
+	margin-left: -20rpx;
+	width: 15rpx;
+	height: 15rpx;
+	margin-right: 20rpx;
+	border-radius: 50%;
 }
 
 .cu-bar .action.border-title {
@@ -1627,7 +1659,7 @@ button.icon.lg {
 }
 
 .cu-bar .action:first-child {
-	margin-left: 30rpx;
+	width: 100rpx;
 	font-size: 30rpx;
 }
 
@@ -2088,7 +2120,7 @@ button.icon.lg {
 	padding: 30rpx;
 	border-radius: 6rpx;
 	display: block;
-	line-height: 1.6;
+	line-height: 1.7;
 }
 
 .cu-timeline>.cu-item>.content:not([class*="bg-"]) {
@@ -2497,7 +2529,7 @@ button.icon.lg {
 	vertical-align: middle;
 	margin-left: auto;
 	margin-right: auto;
-	width: 680rpx;
+	width: 600rpx;
 	max-width: 100%;
 	background-color: #ffffff;
 	border-radius: 10rpx;
@@ -2510,7 +2542,22 @@ button.icon.lg {
 
 .cu-modal.bottom-modal .cu-dialog {
 	width: 100%;
-	border-radius: 0;
+	border-radius: 20rpx 20rpx 0 0;
+	background: #f2f2f2;
+	overflow: hidden;
+}
+
+.cu-modal.bottom-modal .cu-dialog .cu-menus {
+	margin-bottom: 20rpx;
+}
+
+.cu-modal.bottom-modal .cu-dialog .action {
+	width: 100%;
+	min-height: 120rpx;
+	line-height: 130rpx;
+	background: #ffffff;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 32rpx;
 }
 
 .cu-modal.bottom-modal {
@@ -2625,7 +2672,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .card-swiper {
-	height: 420rpx !important;
+	height: 420rpx;
 }
 
 .card-swiper swiper-item {
@@ -3440,6 +3487,38 @@ scroll-view.cu-steps .cu-item {
 	border-color: var(--white);
 }
 
+.border-red {
+	border-color: #ff99ab;
+}
+
+.border-blue {
+	border-color: #99c2ff;
+}
+
+.border-green {
+	border-color: #39b54a99;
+}
+
+.border-purple {
+	border-color: #4e40dd99;
+}
+
+.bg-before-red::before {
+	background-color: var(--red);
+}
+
+.bg-before-blue::before {
+	background-color: var(--blue);
+}
+
+.bg-before-green::before {
+	background-color: var(--green);
+}
+
+.bg-before-purple::before {
+	background-color: var(--purple);
+}
+
 .bg-red {
 	background-color: var(--red);
 	color: var(--white);
@@ -3476,8 +3555,8 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-purple {
-	background-color: var(--purple);
-	color: var(--white);
+	background-color: var(--purple)!important;
+	color: var(--white)!important;
 }
 
 .bg-mauve {
@@ -3612,6 +3691,11 @@ scroll-view.cu-steps .cu-item {
 
 .bg-gradual-blue {
 	background-image: var(--gradualBlue);
+	color: var(--white);
+}
+
+.bg-gradual-lightblue {
+	background-image: var(--gradualLightBlue);
 	color: var(--white);
 }
 
@@ -3853,7 +3937,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .text-content {
-	line-height: 1.6;
+	line-height: 1.7;
 }
 
 .text-left {

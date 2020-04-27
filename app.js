@@ -5,16 +5,19 @@ import {
 
 App({
   globalData: {
+    systemInfo: null,
     userInfo: null
   },
 
   onLaunch: function(e) {
+    this.globalData()
     this.isIpx()
     this.checkScene(e)
     this.trackSrc(e)
   },
 
   onShow: function (options) {
+    this.globalData()
     this.checkUpdate()
     this.checkScene(options)
   },
@@ -85,6 +88,27 @@ App({
    */
   track: function(eventName, properties) {
     console.info(eventName, properties);
+  },
+
+  globalData() {
+    this.globalData.originErrorTop = {}
+    wx.getSystemInfo({
+      success: e => {
+        // console.log('getSystemInfo: ', e)
+        this.globalData.systemInfo = e
+        this.globalData.StatusBar = e.statusBarHeight;
+        let custom = wx.getMenuButtonBoundingClientRect();
+        custom = this.globalData.Custom = custom.bottom ? custom : {
+          bottom: 56,
+          top: 24,
+        };
+        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+        this.globalData.container = {
+          width: e.windowWidth,
+          height: e.windowHeight - this.globalData.CustomBar
+        }
+      }
+    })
   },
 
   checkUpdate: function() {

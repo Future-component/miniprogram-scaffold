@@ -1,0 +1,32 @@
+<customBar
+  bgColor="bg-black"
+  isBack="{{true}}"
+>
+  <view slot="backText" bindtap="closeCamera">
+    <i class="iconfont iconjiantouzuo"></i>
+  </view>
+	<view slot="content">拍照识别</view>
+</customBar>
+<view class="camera-view" style="height: {{container.height}}px">
+  <camera
+    class='camera'
+    mode="normal"
+    binderror="cameraError"
+    frame-size='medium'
+    bindinitdone="initCamera"
+    device-position="{{position}}"
+    style="width: {{container.width}}px; height: {{container.height}}px"
+  >
+    <cover-view class="camera-footer">
+      <cover-view class="camera-icon-item">
+        <cover-image bindtap="chooseImage" style="width: 48rpx;" src="/assets/image/choose-img.png" class="button iconfont text-white" hover-class="hover-button"></cover-image>
+      </cover-view>
+      <cover-view class="camera-icon-item">
+        <cover-image bindtap="takePhoto" style="width: 160rpx;" src="/assets/image/take-photo.png" class="button iconfont text-white" hover-class="hover-button"></cover-image>
+      </cover-view>
+      <cover-view class="camera-icon-item">
+        <cover-image bindtap="switchCameraPosition" style="width: 48rpx;" src="/assets/image/switch-camera.png" class="button iconfont text-white" hover-class="hover-button"></cover-image>
+      </cover-view>
+    </cover-view>
+  </camera>
+</view>
